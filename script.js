@@ -41,10 +41,24 @@ const bot = {
 board.addEventListener('click', ({ target }) => {
     if (target.id === "board") return;
 
-    player.turn = !player.turn
-    bot.turn = !bot.turn
+    // Planning to do the bots part next day
+    /*player.turn = !player.turn
+    bot.turn = !bot.turn*/
 
     if (player.turn) {
+        target.style.color = player.mark_color
+        target.textContent = player.marks
+        player.one_row = one.textContent === "X" && four.textContent === "X" && seven.textContent === "X"
+        player.two_row = two.textContent === "X" && five.textContent === "X" && eight.textContent === "X"
+        player.three_row = three.textContent === "X" && six.textContent === "X" && nine.textContent === "X"
+        player.one_column = one.textContent === "X" && two.textContent === "X" && three.textContent === "X"
+        player.two_column = four.textContent === "X" && five.textContent === "X" && six.textContent === "X"
+        player.three_column = seven.textContent === "X" && eight.textContent === "X" && nine.textContent === "X"
+        player.one_zag = seven.textContent === "X" && five.textContent === "X" && three.textContent === "X"
+        player.other_zag = nine.textContent === "X" && five.textContent === "X" && one.textContent === "X"
         
+        if (player.one_row || player.two_row || player.three_row || player.one_column || player.two_column || player.one_zag || player.other_zag) {
+            outcome.textContent = "Player has won"
+        }
     }
 })
