@@ -57,7 +57,7 @@ board.addEventListener('click', ({ target }) => {
         player.one_zag = seven.textContent === "X" && five.textContent === "X" && three.textContent === "X"
         player.other_zag = nine.textContent === "X" && five.textContent === "X" && one.textContent === "X"
         
-        if (player.one_row || player.two_row || player.three_row || player.one_column || player.two_column || player.one_zag || player.other_zag) {
+        if (player.one_row || player.two_row || player.three_row || player.one_column || player.two_column || player.three_column || player.one_zag || player.other_zag) {
             outcome.textContent = "Player has won"
         }
     }
